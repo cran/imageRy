@@ -1,0 +1,35 @@
+Package: imageRy
+Type: Package
+Title: Modify and Share Images
+Version: 0.1.1
+Authors@R: c(person(given = "Duccio", family = "Rocchini", role = "aut"),
+  person(given = "Ludovico", family = "Chieffallo", role = c("aut", "cre"), email = "ludovico.chieffallo2@unibo.it"),
+  person(given = c("Giovanni", "Andrea"), family = "Nocera", role = "ctb"),
+  person(given = "Giacomo", family = "Panza", role = "ctb"),
+  person(given = "Michele", family = "Torresani", role = "aut"),
+  person(given = "Elisa", family = "Thouverai", role = "aut"))
+Description: Tools for manipulating, visualizing, and exporting raster images in R.
+ Designed as an educational resource for students learning the basics of remote sensing,
+ the package provides user-friendly functions to apply color ramps, export RGB composites,
+ and create multi-frame visualizations. Built on top of the 'terra' and 'ggplot2' packages.
+ See <https://github.com/ducciorocchini/imageRy> for more details and examples.
+Encoding: UTF-8
+Language: en-GB
+License: GPL (>= 2)
+Depends: R (>= 4.0.0)
+Imports: terra, viridis, grDevices, graphics, stats, ggplot2, methods,
+        rlang
+Suggests: knitr, testthat (>= 3.0.0), ggridges, devtools
+Config/testthat/edition: 3
+NeedsCompilation: no
+RoxygenNote: 7.3.2
+Packaged: 2025-06-23 16:56:41 UTC; ludov
+Author: Duccio Rocchini [aut],
+  Ludovico Chieffallo [aut, cre],
+  Giovanni Andrea Nocera [ctb],
+  Giacomo Panza [ctb],
+  Michele Torresani [aut],
+  Elisa Thouverai [aut]
+Maintainer: Ludovico Chieffallo <ludovico.chieffallo2@unibo.it>
+Repository: CRAN
+Date/Publication: 2025-06-25 16:00:02 UTC
