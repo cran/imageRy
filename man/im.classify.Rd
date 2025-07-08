@@ -28,37 +28,9 @@ If NULL, a predefined set of colors is used.}
 \item{num_colors}{The number of colors to interpolate in the visualization palette (default: 100).}
 }
 \value{
-A `SpatRaster` object with cluster assignments, where each pixel belongs to a classified cluster.
+A `SpatRaster` object with cluster assignments.
 }
 \description{
 This function performs unsupervised classification on a raster image using k-means clustering.
-It assigns each pixel to a cluster and optionally visualizes the classified image.
-}
-\details{
-The function applies k-means clustering on the pixel values of the raster image. Each pixel is treated
-as a multi-dimensional point, where each band represents a feature. The classified raster assigns
-each pixel to a cluster, which can be visualized using a color palette.
-
-- If `custom_colors` is provided, it is used as the classification color palette.
-- If `seed` is provided, it ensures reproducibility of k-means clustering.
-- If `do_plot = TRUE`, the classified raster is displayed with the chosen color scheme.
-}
-\examples{
-
-library(terra)
-
-# Load a raster dataset
-r <- rast(system.file("ex/elev.tif", package = "terra"))
-
-# Perform k-means classification with 4 clusters
-classified_raster <- im.classify(r, num_clusters = 4, seed = 123, do_plot = TRUE)
-
-
-}
-\references{
-K-means clustering is a widely used unsupervised classification algorithm. For more information, see:
-\url{https://en.wikipedia.org/wiki/K-means_clustering}
-}
-\seealso{
-[im.import()], [im.ridgeline()]
+It rescales the pixel values to 0–255 to improve visual clustering of scientific TIFFs.
 }

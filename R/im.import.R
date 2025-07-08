@@ -1,44 +1,51 @@
-#' Import a raster image
+#' Import one or more raster images
 #'
-#' This function imports a raster image from the package's internal image collection,
-#' from a user-specified local path, or from a remote Zenodo repository if the image
-#' is not found locally.
+#' This function imports raster images from the package's internal collection,
+#' from user-specified local paths, or from the remote Zenodo repository.
 #'
-#' @param im A character string. Either the name of an image included in the package, 
-#'           or a full file path to a user-provided raster image.
+#' @param im Character vector. Names of images included in the package,
+#'           or full file paths to user-provided raster images.
 #'
-#' @return A `SpatRaster` object.
+#' @return A `SpatRaster` object (stack of layers).
 #' @export
 im.import <- function(im) {
   suppressWarnings({
-    # If 'im' is a valid file path, read it directly
-    if (file.exists(im)) {
-      r <- terra::rast(im)
-      return(r)
+    # Lista finale di path da passare a terra::rast()
+    all_paths <- character(0)
+    
+    for (single_im in im) {
+      # 1. File locale completo
+      if (file.exists(single_im)) {
+        all_paths <- c(all_paths, single_im)
+        next
+      }
+      
+      # 2. Cerca nel pacchetto
+      ls <- list.files(system.file("images", package = "imageRy"))
+      fname <- ls[grep(single_im, ls)]
+      
+      if (length(fname) > 0) {
+        fpath <- system.file("images", fname, package = "imageRy")
+        all_paths <- c(all_paths, fpath)
+        next
+      }
+      
+      # 3. Download da Zenodo
+      message("Not found locally. Trying to download '", single_im, "' from Zenodo...")
+      base_url <- "https://zenodo.org/records/15645465/files"
+      remote_url <- paste0(base_url, "/", single_im, "?download=1")
+      
+      temp_file <- tempfile(fileext = paste0(".", tools::file_ext(single_im)))
+      tryCatch({
+        utils::download.file(remote_url, destfile = temp_file, mode = "wb", quiet = TRUE)
+        all_paths <- c(all_paths, temp_file)
+      }, error = function(e) {
+        stop("Image '", single_im, "' could not be found locally or downloaded.")
+      })
     }
     
-    # Search in package images
-    ls <- list.files(system.file("images", package = "imageRy"))
-    fname <- ls[grep(im, ls)]
-    
-    if (length(fname) > 0) {
-      fpath <- system.file("images", fname, package = "imageRy")
-      r <- terra::rast(fpath)
-      return(r)
-    }
-    
-    # Download from Zenodo
-    message(" Not found locally. Trying to download from Zenodo...")
-    base_url <- "https://zenodo.org/records/15645465/files"
-    remote_url <- paste0(base_url, "/", im, "?download=1")
-    
-    temp_file <- tempfile(fileext = paste0(".", tools::file_ext(im)))
-    tryCatch({
-      utils::download.file(remote_url, destfile = temp_file, mode = "wb", quiet = TRUE)
-      r <- terra::rast(temp_file)
-      return(r)
-    }, error = function(e) {
-      stop("Image '", im, "' could not be found locally or downloaded from Zenodo.")
-    })
+    # Importa tutti i raster in uno stack
+    r <- terra::rast(all_paths)
+    return(r)
   })
 }

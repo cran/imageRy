@@ -2,19 +2,18 @@
 % Please edit documentation in R/im.import.R
 \name{im.import}
 \alias{im.import}
-\title{Import a raster image}
+\title{Import one or more raster images}
 \usage{
 im.import(im)
 }
 \arguments{
-\item{im}{A character string. Either the name of an image included in the package, 
-or a full file path to a user-provided raster image.}
+\item{im}{Character vector. Names of images included in the package,
+or full file paths to user-provided raster images.}
 }
 \value{
-A `SpatRaster` object.
+A `SpatRaster` object (stack of layers).
 }
 \description{
-This function imports a raster image from the package's internal image collection,
-from a user-specified local path, or from a remote Zenodo repository if the image
-is not found locally.
+This function imports raster images from the package's internal collection,
+from user-specified local paths, or from the remote Zenodo repository.
 }

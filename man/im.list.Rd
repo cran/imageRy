@@ -2,29 +2,21 @@
 % Please edit documentation in R/im.list.R
 \name{im.list}
 \alias{im.list}
-\title{List Available Raster Images in the imageRy Package}
+\title{List available example files}
 \usage{
-im.list()
+im.list(include_remote = TRUE)
+}
+\arguments{
+\item{include_remote}{Logical. If TRUE (default), also lists remote files hosted on Zenodo.}
 }
 \value{
-A character vector containing the names of available raster image files.
+A character vector of file names.
 }
 \description{
-This function lists all raster images stored in the `imageRy` package.
-}
-\details{
-The function retrieves the names of all files in the "images" directory of the `imageRy` package.
-These files can be imported using `im.import()`.
+This function lists example files included locally in the package and, optionally,
+remote files hosted on Zenodo.
 }
 \examples{
-
-library(imageRy)
-
-# List available images
 im.list()
-
-
-}
-\seealso{
-[im.import()]
+im.list(include_remote = FALSE)
 }
