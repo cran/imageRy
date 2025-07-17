@@ -7,13 +7,12 @@
 im.import(im)
 }
 \arguments{
-\item{im}{Character vector. Names of images included in the package,
-or full file paths to user-provided raster images.}
+\item{im}{Character vector. Full or partial names of images available on Zenodo.}
 }
 \value{
 A `SpatRaster` object (stack of layers).
 }
 \description{
-This function imports raster images from the package's internal collection,
-from user-specified local paths, or from the remote Zenodo repository.
+This function imports raster images from the remote Zenodo repository
+using exact or partial matches. It returns a SpatRaster stack of all matching files.
 }

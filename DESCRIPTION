@@ -1,7 +1,7 @@
 Package: imageRy
 Type: Package
 Title: Modify and Share Images
-Version: 0.2.0
+Version: 0.3.0
 Authors@R: c(person(given = "Duccio", family = "Rocchini", role = "aut"),
   person(given = "Ludovico", family = "Chieffallo", role = c("aut", "cre"), email = "ludovico.chieffallo2@unibo.it"),
   person(given = c("Giovanni", "Andrea"), family = "Nocera", role = "ctb"),
@@ -23,7 +23,7 @@ Suggests: knitr, testthat (>= 3.0.0), ggridges, devtools
 Config/testthat/edition: 3
 NeedsCompilation: no
 RoxygenNote: 7.3.2
-Packaged: 2025-07-08 09:25:54 UTC; ludov
+Packaged: 2025-07-17 16:16:23 UTC; ludov
 Author: Duccio Rocchini [aut],
   Ludovico Chieffallo [aut, cre],
   Giovanni Andrea Nocera [ctb],
@@ -32,4 +32,4 @@ Author: Duccio Rocchini [aut],
   Elisa Thouverai [aut]
 Maintainer: Ludovico Chieffallo <ludovico.chieffallo2@unibo.it>
 Repository: CRAN
-Date/Publication: 2025-07-08 09:40:02 UTC
+Date/Publication: 2025-07-17 16:50:01 UTC

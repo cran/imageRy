@@ -1,11 +1,11 @@
-c916c96765326127715cf94c436129d1 *DESCRIPTION
+7344f5fb1b96f1934f387e685c50c366 *DESCRIPTION
 2c3919f233c6b63e79d744087d774742 *NAMESPACE
-8f72c6b0ee84dc6801ac9a2f335ce3ea *R/im.classify.R
+6ef8676235f5adbd8311b7fc4e602b8e *R/im.classify.R
 f27c51c81005370425fdb01799030162 *R/im.dvi.R
 a96238495c9925e11ba35f92461cd512 *R/im.export.R
 b967b4d2410feefb30fe36e9e926ee30 *R/im.ggplot.R
-2ecf0277c218651a55becfcff49c2141 *R/im.import.R
-31a645aae692b5faa196dac96138ca1c *R/im.list.R
+add991199431bb0ba5b8722245e55ab9 *R/im.import.R
+d45c32185844e971d162749d3c4e71c3 *R/im.list.R
 89f3e917b9be23766db8fda14151679f *R/im.multiframe.R
 ae1b7c08aca3ad7ea799214bf0cd875c *R/im.ndvi.R
 5b82b744e54a4631acf7aab49f6784de *R/im.pca.R
@@ -26,7 +26,7 @@ d678d2ceadad4f29dcc0db63707d07f3 *inst/images/NDVI_rainbow_legend.png
 3b1bca74c8f4c858b64152f6ff870108 *man/im.dvi.Rd
 c388a700864a126698c3f7eec6b14d14 *man/im.export.Rd
 ce85591fe270408dd1b933fec9dc89ca *man/im.ggplot.Rd
-71c6ea35ed341d4f85e16ed9f84483dd *man/im.import.Rd
+9048f56c9bdb668176941b8e74772c21 *man/im.import.Rd
 1203d6201257bf1e21d5b69ad0d78894 *man/im.list.Rd
 568312ce101d9b3892798338d70cb024 *man/im.multiframe.Rd
 1541595c9538011682311f67f7130f8f *man/im.ndvi.Rd

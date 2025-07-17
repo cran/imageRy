@@ -12,10 +12,10 @@
 #' im.list(include_remote = FALSE)
 #' @export
 im.list <- function(include_remote = TRUE) {
-  # File locali
+  
   local_files <- list.files(system.file("extdata", package = "imageRy"))
   
-  # File remoti statici
+  
   remote_files <- c(
     "bletterbach.jpg",
     "dolansprings_oli_2013088_canyon_lrg.jpg",
@@ -53,7 +53,7 @@ im.list <- function(include_remote = TRUE) {
     "Solar_Orbiter_s_first_views_of_the_Sun_pillars.jpg"
   )
   
-  # Unisci risultati
+  
   if (include_remote) {
     result <- c(local_files, remote_files)
   } else {
