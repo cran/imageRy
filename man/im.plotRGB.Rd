@@ -4,7 +4,7 @@
 \alias{im.plotRGB}
 \title{Plot a Raster Image as an RGB Composite with User-Selected Bands}
 \usage{
-im.plotRGB(x, r, g, b, title = "")
+im.plotRGB(x, r, g, b, title = "", reset = TRUE)
 }
 \arguments{
 \item{x}{A `SpatRaster` object representing the input multispectral image.}
@@ -16,6 +16,9 @@ im.plotRGB(x, r, g, b, title = "")
 \item{b}{An integer specifying the band index for the Blue channel.}
 
 \item{title}{A character string specifying the plot title (default: "").}
+
+\item{reset}{Logical. If `TRUE`, the graphical parameters modified by the function
+are restored after plotting. Default is `TRUE`.}
 }
 \value{
 This function does not return an object. It directly generates a plot.

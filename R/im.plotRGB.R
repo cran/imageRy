@@ -8,6 +8,8 @@
 #' @param g An integer specifying the band index for the Green channel.
 #' @param b An integer specifying the band index for the Blue channel.
 #' @param title A character string specifying the plot title (default: "").
+#' @param reset Logical. If `TRUE`, the graphical parameters modified by the function
+#'   are restored after plotting. Default is `TRUE`.
 #'
 #' @return This function does not return an object. It directly generates a plot.
 #' @importFrom terra plotRGB
@@ -30,10 +32,13 @@
 #' # Plot with user-selected bands (3 = Red, 2 = Green, 1 = Blue)
 #' im.plotRGB(r, r = 3, g = 2, b = 1, title = "Custom RGB Visualization")
 #' @export
-im.plotRGB <- function(x, r, g, b, title = '') {
-  oldpar <- par(no.readonly = TRUE)
-  on.exit(par(oldpar))
+im.plotRGB <- function(x, r, g, b, title = '', reset = TRUE) {
+  if (reset) {
+    oldpar <- par(c("col.axis", "col.lab", "tck"))
+    on.exit(par(oldpar))
+  }
+  
   par(col.axis = "white", col.lab = "white", tck = 0)
-  plotRGB(x, r, g, b, stretch = "lin", axes = TRUE, mar = c(1, 1, 2, 1))
+  plotRGB(x, r, g, b, stretch = "lin", axes = TRUE)
   title(main = title, cex.main = 1.3, line = 2.5)
 }

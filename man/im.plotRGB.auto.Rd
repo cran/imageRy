@@ -12,26 +12,18 @@ im.plotRGB.auto(x, title = "Main")
 \item{title}{A character string specifying the plot title (default: "Main").}
 }
 \value{
-This function does not return an object. It directly generates a plot.
+Invisibly returns `x`.
 }
 \description{
 This function visualizes a multispectral raster image using the first three bands
 as an RGB composite. It applies a linear contrast stretch to enhance visualization.
 }
-\details{
-- The function assumes that the **first three bands** of the raster correspond to the Red, Green, and Blue channels.
-- It uses `plotRGB()` with `stretch="lin"` to enhance contrast.
-- The plot title is customizable via the `title` parameter.
-- The axis and label colors are set to white for better contrast with dark backgrounds.
-}
 \examples{
 library(terra)
 
-# Create a 3-band raster with random values
 r <- rast(nrows = 10, ncols = 10, nlyrs = 3)
 values(r) <- runif(ncell(r) * 3)
 
-# Plot RGB composite
 im.plotRGB.auto(r, title = "RGB Visualization")
 }
 \seealso{

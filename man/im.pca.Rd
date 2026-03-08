@@ -4,43 +4,43 @@
 \alias{im.pca}
 \title{Perform Principal Component Analysis (PCA) on a Raster Image}
 \usage{
-im.pca(input_image, n_samples = 100, n_components = 3)
+im.pca(input_image, n_samples = 100, n_components = 3, plot = TRUE)
 }
 \arguments{
 \item{input_image}{A `SpatRaster` object representing the input multispectral image.}
 
 \item{n_samples}{An integer specifying the number of random samples used for PCA computation (default: 100).}
 
-\item{n_components}{Number of principal components to compute.}
+\item{n_components}{Number of principal components to compute (default: 3).}
+
+\item{plot}{Logical. If `TRUE`, the resulting principal components are plotted. Default is `TRUE`.}
 }
 \value{
-A `SpatRaster` object containing all computed principal components.
+A `SpatRaster` object containing the computed principal components.
 }
 \description{
 This function applies Principal Component Analysis (PCA) to a multispectral raster image,
-extracting all available principal components. It reduces dimensionality while preserving
-the most important variance in the dataset.
+extracting principal components from a sample of pixels and projecting the full raster
+into the PCA space.
 }
 \details{
 Principal Component Analysis (PCA) is a statistical technique used to transform correlated
 raster bands into a set of orthogonal components, capturing the most variance in fewer bands.
 
-- The function **automatically determines** the number of components based on the number of bands.
 - A sample of `n_samples` pixels is used to compute the PCA transformation.
-- The **full image** is then projected onto the principal component space.
-- The resulting raster contains **all computed principal components**.
-- The output is visualized using a `viridis` color scale.
+- The full image is then projected onto the principal component space.
+- The output raster contains the selected principal components.
+- If `plot = TRUE`, the output is visualized using a `viridis` color scale.
 }
 \examples{
 library(terra)
-library(viridis)
 
 # Create a 3-band raster
 r <- rast(nrows = 10, ncols = 10, nlyrs = 3)
 values(r) <- runif(ncell(r) * 3)
 
-# Perform PCA
-pca_result <- im.pca(r, n_samples = 100)
+# Perform PCA without plotting
+pca_result <- im.pca(r, n_samples = 100, plot = FALSE)
 
 # Plot the first principal component
 plot(pca_result[[1]])
